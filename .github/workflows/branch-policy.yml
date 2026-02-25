@@ -1,0 +1,14 @@
+name: Branch Policy Check
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+
+jobs:
+  validate-branch:
+    uses: aswinscaria0307/org-governance/.github/workflows/validate-branch-name.yml@main
+    secrets:
+      JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+      JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+      JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
